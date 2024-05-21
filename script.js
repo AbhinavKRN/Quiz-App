@@ -21,9 +21,9 @@ const questions = [
         question: "Which of the following is the correct way to comment in HTML?",
         answers: [
             { text: "// Comment", correct: false },
-            { text: "<!-- Comment -->", correct: true },
+            { text: "!-- Comment --", correct: true },
             { text: "/* Comment */", correct: false },
-            { text: `<! Comment>`, correct: false },
+            { text: "! Comment>", correct: false },
         ]
     },
 ];
