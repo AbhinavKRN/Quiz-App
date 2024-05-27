@@ -23,7 +23,7 @@ const questions = [
             { text: "// Comment", correct: false },
             { text: "!-- Comment --", correct: true },
             { text: "/* Comment */", correct: false },
-            { text: "! Comment>", correct: false },
+            { text: "! Comment", correct: false },
         ]
     },
 ];
@@ -31,6 +31,7 @@ const questions = [
 const questionElement = document.getElementById("question");
 const answerButton = document.getElementById("answer-buttons");
 const nextButton = document.getElementById("next-btn");
+const progressBar = document.getElementById("progress-bar");
 
 let currentIndex = 0;
 let score = 0;
@@ -39,6 +40,7 @@ function startQuiz() {
     currentIndex = 0;
     score = 0;
     nextButton.innerHTML = "Next";
+    progressBar.style.width = "0%";
     showQuestion();
 }
 
@@ -83,8 +85,10 @@ nextButton.addEventListener("click", () => {
     currentIndex++;
     if (currentIndex < questions.length) {
         showQuestion();
+        updateProgressBar();
     } else {
         showScore();
+        updateProgressBar(true);
     }
 });
 
@@ -96,4 +100,8 @@ function showScore() {
     nextButton.addEventListener("click", startQuiz);
 }
 
+function updateProgressBar() {
+    const progress = ((currentIndex + 1) / questions.length) * 100;
+    progressBar.style.width = progress + "%";
+}
 startQuiz();
