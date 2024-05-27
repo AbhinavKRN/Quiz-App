@@ -70,4 +70,18 @@ body{
 .incorrect{
     background: #ff9393;
 }
+#progress-bar-container {
+    width: 100%;
+    background-color: #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+#progress-bar {
+    height: 20px;
+    width: 0%;
+    background-color: #001e4d;
+    transition: width 0.3s;
+}
 
